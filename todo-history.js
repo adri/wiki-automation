@@ -1,9 +1,10 @@
 const chokidar = require('chokidar');
 const tilde = require('tilde-expansion');
 const fs = require('fs');
+require('dotenv').config();
 var dateFormat = require('dateformat');
 
-const wikiPath = '~/Library/Mobile\ Documents/27N4MQEA55~pro~writer/Documents/Wiki_Synced/';
+const wikiPath = process.env.WIKI_PATH;
 const historySuffix = '-History.txt';
 
 function findTodos(content) {
