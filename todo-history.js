@@ -4,8 +4,8 @@ const fs = require('fs');
 require('dotenv').config();
 var dateFormat = require('dateformat');
 
-const wikiPath = process.env.WIKI_PATH;
-const historySuffix = '-History.txt';
+const wikiPath = process.env.WIKI_PATH || "~/Library/Mobile Documents/27N4MQEA55~pro~writer/Documents/Wiki_Synced/";
+const historySuffix = '-History.md';
 
 function findTodos(content) {
     return content.match(/^.*-\ \[x\](.*\s*)$/mg, '') || [];
@@ -53,7 +53,7 @@ function moveCheckedTodosToHistory(file) {
 }
 
 tilde(wikiPath + 'ToDo.txt', file => moveCheckedTodosToHistory(file));
-tilde(wikiPath + 'Terberg Midoffice.txt', file => moveCheckedTodosToHistory(file));
+tilde(wikiPath + 'TicketSwap-Todo.txt', file => moveCheckedTodosToHistory(file));
 
 // Watcher version
 //tilde(wikiPath, dir =>
